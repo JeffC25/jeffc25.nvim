@@ -1,4 +1,4 @@
--- autopairs
+-- Autopairs
 -- See: https://github.com/windwp/nvim-autopairs
 
 return {
@@ -7,10 +7,12 @@ return {
   -- Optional dependency
   dependencies = { 'hrsh7th/nvim-cmp' },
   config = function()
-    require('nvim-autopairs').setup {}
+    require('nvim-autopairs').setup({})
     -- Automatically add `(` after selecting a function or method
-    local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
     local cmp = require('cmp')
     cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
   end,
 }
+
+-- vim: ts=2 sts=2 sw=2 et

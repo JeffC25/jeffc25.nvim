@@ -9,7 +9,7 @@ return {
       {
         '<leader>f',
         function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
+          require('conform').format({ async = true, lsp_format = 'fallback' })
         end,
         mode = '',
         desc = '[F]ormat buffer',
@@ -33,11 +33,12 @@ return {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        python = { "isort", "black" },
-        javascript = { "prettierd", "prettier", stop_after_first = true },
-        go = { 'gofumpt', 'goimports' }
+        python = { 'isort', 'black' },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        go = { 'gofumpt', 'goimports' },
       },
     },
   },
 }
+
 -- vim: ts=2 sts=2 sw=2 et

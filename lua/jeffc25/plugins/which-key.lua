@@ -47,7 +47,7 @@ return {
 
       -- Document existing key chains
       spec = {
-        { '<leader>c', group = '[C]ode',     mode = { 'n', 'x' } },
+        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
@@ -58,4 +58,5 @@ return {
     },
   },
 }
+
 -- vim: ts=2 sts=2 sw=2 et
