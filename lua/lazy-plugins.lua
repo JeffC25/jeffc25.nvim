@@ -1,7 +1,7 @@
 -- Configure and install plugins
 
 require('lazy').setup({
-  require('jeffc25/plugins/vim-sleuth'),
+  'tpope/vim-sleuth',
 
   require('jeffc25/plugins/gitsigns'),
 
@@ -28,6 +28,8 @@ require('lazy').setup({
   require('jeffc25/plugins/treesitter'),
 
   require('jeffc25/plugins/indent-guides'),
+
+  -- require('jeffc25/plugins/visual-multi'),
 
   -- require('jeffc25/plugins/oil'),
   -- require('jeffc25/plugins/harpoon'),

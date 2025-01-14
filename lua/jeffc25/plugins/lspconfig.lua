@@ -113,14 +113,14 @@ return {
       })
 
       -- Change diagnostic symbols in the sign column (gutter)
-      -- if vim.g.have_nerd_font then
-      --   local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
-      --   local diagnostic_signs = {}
-      --   for type, icon in pairs(signs) do
-      --     diagnostic_signs[vim.diagnostic.severity[type]] = icon
-      --   end
-      --   vim.diagnostic.config { signs = { text = diagnostic_signs } }
-      -- end
+      if vim.g.have_nerd_font then
+        local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
+        local diagnostic_signs = {}
+        for type, icon in pairs(signs) do
+          diagnostic_signs[vim.diagnostic.severity[type]] = icon
+        end
+        vim.diagnostic.config({ signs = { text = diagnostic_signs } })
+      end
 
       -- Additional capabilities with nvim cmp, broadcast to LSP servers.
       local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -172,7 +172,7 @@ return {
       require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
 
       require('mason-lspconfig').setup({
-        ensure_installed = {},
+        ensure_installed = { 'lua_ls' },
         automatic_installation = true,
         handlers = {
           function(server_name)
@@ -183,6 +183,27 @@ return {
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
+        },
+      })
+    end,
+  },
+  {
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('nvim-ts-autotag').setup({
+        opts = {
+          -- Defaults
+          enable_close = true, -- Auto close tags
+          enable_rename = true, -- Auto rename pairs of tags
+          enable_close_on_slash = false, -- Auto close on trailing </
+        },
+        -- Also override individual filetype configs, these take priority.
+        -- Empty by default, useful if one of the "opts" global settings
+        -- doesn't work well in a specific filetype
+        per_filetype = {
+          ['html'] = {
+            enable_close = true,
+          },
         },
       })
     end,

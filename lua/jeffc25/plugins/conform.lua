@@ -33,8 +33,29 @@ return {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        python = { 'isort', 'black' },
-        javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        python = {
+          'isort',
+          -- 'black'
+        },
+
+        javascript = { 'prettier', stop_after_first = true },
+        javascriptreact = { 'prettier' },
+        typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
+        vue = { 'prettier' },
+        css = { 'prettier' },
+        scss = { 'prettier' },
+        html = { 'prettier' },
+        less = { 'prettier' },
+        jsonc = { 'prettier' },
+        yaml = { 'prettier' },
+        markdown = { 'prettier' },
+        ['markdown.mdx'] = { 'prettier' },
+        graphql = { 'prettier' },
+        handlebars = { 'prettier' },
+        json = { 'fixjson', 'prettier' },
+        xml = { 'xmlformatter' },
+
         go = { 'gofumpt', 'goimports' },
       },
     },
