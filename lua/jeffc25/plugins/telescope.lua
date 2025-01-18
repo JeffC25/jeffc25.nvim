@@ -24,6 +24,8 @@ return {
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+
+      { 'nvim-telescope/telescope-file-browser.nvim' },
     },
     config = function()
       -- [[ Configure Telescope ]]
@@ -64,6 +66,8 @@ return {
           previewer = false,
         }))
       end, { desc = '[/] Fuzzily search in current buffer' })
+      vim.keymap.set('n', '<space>fb', ':Telescope file_browser<CR>')
+      vim.keymap.set('n', '<space>ff', ':Telescope file_browser path=%:p:h select_buffer=true<CR>')
 
       -- See `:help telescope.builtin.live_grep()`
       vim.keymap.set('n', '<leader>s/', function()
@@ -77,6 +81,8 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files({ cwd = vim.fn.stdpath('config') })
       end, { desc = '[S]earch [N]eovim files' })
+
+      require('telescope').load_extension('file_browser')
     end,
   },
 }
