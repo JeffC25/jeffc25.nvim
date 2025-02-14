@@ -33,6 +33,8 @@ require('lazy').setup({
 
   require('jeffc25/plugins/session'),
 
+  require('jeffc25/plugins/leetcode'),
+
   -- require('jeffc25/plugins/visual-multi'),
   -- require('jeffc25/plugins/harpoon'),
 }, {
