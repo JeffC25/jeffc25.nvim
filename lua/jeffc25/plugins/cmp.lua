@@ -74,14 +74,8 @@ return {
           -- -- NOTE: Traditional mappings
           -- Backspace mapping to abort if suggestions are visible, otherwise normal backspace
           ['<BS>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              -- Abort completion if suggestions are visible
-              cmp.abort()
-            elseif not cmp.visible() then
-              -- Disable nvim-cmp if there are no suggestions
-              vim.g.cmp_enabled = false
-              fallback() -- Continue normal backspace behavior
-            end
+            vim.g.cmp_enabled = false
+            fallback() -- Continue normal backspace behavior
           end, { 'i', 's' }),
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
           ['<Tab>'] = cmp.mapping.select_next_item(),
