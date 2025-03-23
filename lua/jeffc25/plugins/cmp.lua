@@ -37,28 +37,12 @@ return {
       local luasnip = require('luasnip')
       luasnip.config.setup({})
 
-      -- -- NOTE: For traditional autocmp mappings
-      -- Define a variable to toggle cmp
-      vim.g.cmp_enabled = true
-
       cmp.setup({
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
           end,
         },
-
-        -- -- NOTE: For traditional autocmp mappings
-        enabled = function()
-          return vim.g.cmp_enabled
-        end,
-        vim.api.nvim_create_autocmd('InsertCharPre', {
-          pattern = '*',
-          callback = function()
-            vim.g.cmp_enabled = true
-          end,
-        }),
-
         completion = { completeopt = 'menu,menuone,noinsert' },
 
         -- See `:help ins-completion`
@@ -71,12 +55,7 @@ return {
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
-          -- -- NOTE: Traditional mappings
-          -- Backspace mapping to abort if suggestions are visible, otherwise normal backspace
-          ['<BS>'] = cmp.mapping(function(fallback)
-            vim.g.cmp_enabled = false
-            fallback() -- Continue normal backspace behavior
-          end, { 'i', 's' }),
+          -- NOTE: Traditional mappings
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
           ['<Tab>'] = cmp.mapping.select_next_item(),
           ['<S-Tab>'] = cmp.mapping.select_prev_item(),
