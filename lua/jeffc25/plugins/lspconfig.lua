@@ -141,6 +141,7 @@ return {
         rust_analyzer = {},
         ts_ls = {},
         tailwindcss = {},
+        jsonls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 
         lua_ls = {
