@@ -32,11 +32,12 @@ return {
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
       require('telescope').setup({
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
+        defaults = {
+          mappings = {
+            i = { ['<c-enter>'] = 'to_fuzzy_refine', ['<C-h>'] = 'which_key', ['<c-d>'] = require('telescope.actions').delete_buffer },
+            n = { ['<c-d>'] = require('telescope.actions').delete_buffer },
+          },
+        },
         -- pickers = {}
         extensions = {
           ['ui-select'] = {
