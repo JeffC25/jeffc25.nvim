@@ -1,12 +1,11 @@
 -- Color schemes
 
 return { {
-  'catppuccin/nvim',
+  'loctvl842/monokai-pro.nvim',
   lazy = false,
-  name = 'catppuccin',
   priority = 1000,
   config = function()
-    vim.cmd.colorscheme('catppuccin')
+    vim.cmd.colorscheme('monokai-pro')
   end,
 } }
 
