@@ -32,6 +32,8 @@ return {
     lsp_stop_on_restore = false, -- Should language servers be stopped when restoring a session. Can also be a function that will be called if set. Not called on autorestore from startup
     log_level = 'error', -- Sets the log level of the plugin (debug, info, warn, error).
 
+    pre_save_cmds = { 'Neotree close' },
+
     session_lens = {
       load_on_setup = true, -- Initialize on startup (requires Telescope)
       theme_conf = { -- Pass through for Telescope theme options
