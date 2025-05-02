@@ -7,7 +7,7 @@ require('lazy').setup({
 
   require('jeffc25/plugins/treesitter'),
 
-  require('jeffc25/plugins/gitsigns'),
+  require('jeffc25/plugins/git'),
 
   require('jeffc25/plugins/which-key'),
 

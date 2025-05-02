@@ -22,6 +22,18 @@ return {
       },
     },
   },
+
+  config = function(_, opts)
+    require("neo-tree").setup(opts)
+
+    -- Auto-close Neo-tree before exiting Neovim
+    vim.api.nvim_create_autocmd("VimLeavePre", {
+      callback = function()
+        vim.cmd("Neotree close")
+      end,
+    })
+  end,
 }
 
 -- vim: ts=2 sts=2 sw=2 et
+
