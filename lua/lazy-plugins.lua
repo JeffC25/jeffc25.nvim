@@ -33,10 +33,15 @@ require('lazy').setup({
 
   require('jeffc25/plugins/session'),
 
-  require('jeffc25/plugins/leetcode'),
+  require('jeffc25/plugins/debugger'),
+
+  -- require('jeffc25/plugins/leetcode'),
+
+  -- require('jeffc25/plugins/arrow'),
+
+  require('jeffc25/plugins/harpoon'),
 
   -- require('jeffc25/plugins/visual-multi'),
-  -- require('jeffc25/plugins/harpoon'),
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {

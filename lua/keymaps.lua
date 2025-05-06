@@ -36,15 +36,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Tab navigation
-vim.keymap.set('n', '<Leader>tn', ':tabnext<CR>', { noremap = true, silent = true, desc = 'Move focus to the next tab' }) -- Next tab
-vim.keymap.set('n', '<Leader>tp', ':tabprev<CR>', { noremap = true, silent = true, desc = 'Move focus to the previous tab' }) -- Previous tab
-vim.keymap.set('n', '<Leader>tf', ':tabfirst<CR>', { noremap = true, silent = true, desc = 'Move focus to the first tab' }) -- First tab
-vim.keymap.set('n', '<Leader>tl', ':tablast<CR>', { noremap = true, silent = true, desc = 'Move focus to the last tab' }) -- Last tab
-vim.keymap.set('n', '<Leader>tw', ':tabclose<CR>', { noremap = true, silent = true, desc = 'Close the current tab' }) -- Close current tab
-vim.keymap.set('n', '<Leader>tN', ':tabnew<CR>', { noremap = true, silent = true, desc = 'Create a new tab' }) -- Close current tab
-for i = 1, 9 do
-  vim.keymap.set('n', '<Leader>t' .. i, ':tabn ' .. i .. '<CR>', { noremap = true, silent = true, desc = 'Move focus to tab' .. i }) -- Tab #i
-end
-
 -- vim: ts=2 sts=2 sw=2 et
