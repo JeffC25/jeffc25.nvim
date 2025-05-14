@@ -1,7 +1,7 @@
 return {
-  "otavioschwanck/arrow.nvim",
+  'otavioschwanck/arrow.nvim',
   dependencies = {
-    { "nvim-tree/nvim-web-devicons" },
+    { 'nvim-tree/nvim-web-devicons' },
     -- or if using `mini.icons`
     -- { "echasnovski/mini.icons" },
   },
@@ -9,7 +9,11 @@ return {
     show_icons = true,
     leader_key = ';', -- Recommended to be a single key
     buffer_leader_key = 'm', -- Per Buffer Mappings
-  }
+    window = {
+      style = 'minimal',
+      border = 'none'
+    }
+  },
 }
 
 -- vim: ts=2 sts=2 sw=2 et

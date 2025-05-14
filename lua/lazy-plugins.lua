@@ -27,6 +27,8 @@ require('lazy').setup({
 
   require('jeffc25/plugins/mini'),
 
+  require('jeffc25/plugins/lualine'),
+
   require('jeffc25/plugins/indent-guides'),
 
   require('jeffc25/plugins/oil'),
@@ -37,9 +39,9 @@ require('lazy').setup({
 
   -- require('jeffc25/plugins/leetcode'),
 
-  -- require('jeffc25/plugins/arrow'),
+  require('jeffc25/plugins/arrow'),
 
-  require('jeffc25/plugins/harpoon'),
+  -- require('jeffc25/plugins/harpoon'),
 
   -- require('jeffc25/plugins/visual-multi'),
 }, {
