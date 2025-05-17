@@ -38,7 +38,6 @@ return {
           end
         end, { desc = 'Jump to previous git [c]hange' })
 
-        -- test test 
         -- Actions
         -- visual mode
         map('v', '<leader>Gs', function()

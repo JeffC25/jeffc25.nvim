@@ -11,7 +11,7 @@ return {
     buffer_leader_key = 'm', -- Per Buffer Mappings
     window = {
       style = 'minimal',
-      border = 'none'
+      border = 'single'
     }
   },
 }
