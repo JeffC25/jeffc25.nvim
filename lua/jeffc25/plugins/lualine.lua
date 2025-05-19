@@ -42,7 +42,7 @@ return {
         lualine_x = {
           { 'diff', colored = true },
           { 'encoding' },
-          { 'filetype', icon_only = true },
+          { 'filetype'},
         },
         lualine_y = {},
         lualine_z = {},

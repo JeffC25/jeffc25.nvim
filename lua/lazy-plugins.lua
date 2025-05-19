@@ -37,9 +37,11 @@ require('lazy').setup({
 
   require('jeffc25/plugins/debugger'),
 
-  -- require('jeffc25/plugins/leetcode'),
-
   require('jeffc25/plugins/arrow'),
+
+  -- require('jeffc25/plugins/bbq'),
+
+  -- require('jeffc25/plugins/leetcode'),
 
   -- require('jeffc25/plugins/harpoon'),
 
@@ -62,7 +64,7 @@ require('lazy').setup({
       lazy = '💤 ',
     },
   },
-  install = { colorscheme = { 'catppuccin' } },
+  install = {},
 })
 
 -- vim: ts=2 sts=2 sw=2 et
