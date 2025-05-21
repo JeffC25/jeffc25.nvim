@@ -39,6 +39,8 @@ require('lazy').setup({
 
   require('jeffc25/plugins/arrow'),
 
+  require('jeffc25/plugins/icons'),
+
   -- require('jeffc25/plugins/bbq'),
 
   -- require('jeffc25/plugins/leetcode'),

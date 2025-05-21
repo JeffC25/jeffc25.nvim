@@ -1,11 +1,12 @@
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
+    local ayu_with_monokai_background = require('lualine.themes.ayu_dark')
+    ayu_with_monokai_background.normal.c.bg = '#221F22'
     require('lualine').setup({
       options = {
         icons_enabled = true,
-        theme = 'auto',
+        theme = ayu_with_monokai_background,
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
@@ -42,7 +43,7 @@ return {
         lualine_x = {
           { 'diff', colored = true },
           { 'encoding' },
-          { 'filetype'},
+          { 'filetype' },
         },
         lualine_y = {},
         lualine_z = {},

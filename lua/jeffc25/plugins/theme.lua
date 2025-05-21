@@ -18,13 +18,23 @@ return {
   --   end,
   -- },
   -- {
+  --   'JeffC25/neovim-ayu-custom',
+  --   priority = 1000,
+  --   config = function()
+  --     require('ayu').setup({
+  --       terminal = true,
+  --     })
+  --     vim.cmd.colors('ayu')
+  --   end,
+  -- },
+  -- {
   --   'Shatur/neovim-ayu',
   --   priority = 1000,
   --   config = function()
   --     require('ayu').setup({
   --       terminal = true,
   --     })
-  --     vim.cmd.colors('ayu-dark')
+  --     vim.cmd.colors('ayu-light')
   --   end,
   -- },
   -- {
@@ -85,6 +95,27 @@ return {
     config = function()
       vim.cmd.colorscheme('monokai-pro')
     end,
+  },
+  -- {
+  --   'ViViDboarder/wombat.nvim',
+  --   dependencies = { { 'rktjmp/lush.nvim' } },
+  --   opts = {
+  --     -- You can optionally specify the name of the ansi colors you wish to use
+  --     -- This defaults to nil and will use the default ansi colors for the theme
+  --     ansi_colors_name = nil,
+  --   },
+  --   config = function()
+  --     vim.cmd.colorscheme('wombat')
+  --   end,
+  -- },
+  {
+    'catgoose/nvim-colorizer.lua',
+    event = 'BufReadPre',
+    opts = {
+      user_default_options = {
+        names = false,
+      },
+    },
   },
 }
 
