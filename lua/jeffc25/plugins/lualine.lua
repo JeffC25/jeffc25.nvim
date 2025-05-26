@@ -1,12 +1,10 @@
 return {
   'nvim-lualine/lualine.nvim',
   config = function()
-    local ayu_with_monokai_background = require('lualine.themes.ayu_dark')
-    ayu_with_monokai_background.normal.c.bg = '#221F22'
     require('lualine').setup({
       options = {
         icons_enabled = true,
-        theme = ayu_with_monokai_background,
+        theme = 'auto',
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
