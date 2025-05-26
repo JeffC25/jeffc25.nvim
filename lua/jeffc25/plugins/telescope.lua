@@ -46,6 +46,8 @@ return {
         },
       })
 
+      vim.cmd.autocmd('User TelescopePreviewerLoaded setlocal number')
+
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
