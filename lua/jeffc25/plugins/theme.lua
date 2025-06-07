@@ -18,16 +18,27 @@ return {
   --   end,
   -- },
   {
-    'JeffC25/neovim-ayu-custom',
-    -- dir = '~/dev/nvim/neovim-ayu/',
+    'JeffC25/season.nvim',
+    -- dir = '~/dev/nvim/season.nvim/',
     priority = 1000,
     config = function()
-      require('ayu').setup({
+      require('season').setup({
         terminal = true,
       })
-      vim.cmd.colors('ayu')
+      vim.cmd.colors('season')
     end,
   },
+  -- {
+  --   'JeffC25/neovim-ayu-custom',
+  --   -- dir = '~/dev/nvim/neovim-ayu/',
+  --   priority = 1000,
+  --   config = function()
+  --     require('ayu').setup({
+  --       terminal = true,
+  --     })
+  --     vim.cmd.colors('ayu')
+  --   end,
+  -- },
   -- {
   --   'Shatur/neovim-ayu',
   --   priority = 1000,
@@ -35,7 +46,7 @@ return {
   --     require('ayu').setup({
   --       terminal = true,
   --     })
-  --     vim.cmd.colors('ayu-light')
+  --     vim.cmd.colors('ayu-dark')
   --   end,
   -- },
   -- {
