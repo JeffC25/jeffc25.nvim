@@ -1,4 +1,25 @@
 return {
+  {
+    'JeffC25/season.nvim',
+    -- dir = '~/dev/nvim/season.nvim/',
+    priority = 1000,
+    config = function()
+      require('season').setup({
+        terminal = true,
+      })
+      -- vim.cmd.colors('season')
+    end,
+  },
+  {
+    'Shatur/neovim-ayu',
+    priority = 1000,
+    config = function()
+      require('ayu').setup({
+        terminal = true,
+      })
+      -- vim.cmd.colors('ayu-dark')
+    end,
+  },
   -- {
   --   'rose-pine/neovim',
   --   name = 'rose-pine',
@@ -17,17 +38,6 @@ return {
   --     vim.cmd.colorscheme('zenwritten')
   --   end,
   -- },
-  {
-    'JeffC25/season.nvim',
-    -- dir = '~/dev/nvim/season.nvim/',
-    priority = 1000,
-    config = function()
-      require('season').setup({
-        terminal = true,
-      })
-      vim.cmd.colors('season')
-    end,
-  },
   -- {
   --   'JeffC25/neovim-ayu-custom',
   --   -- dir = '~/dev/nvim/neovim-ayu/',
@@ -37,16 +47,6 @@ return {
   --       terminal = true,
   --     })
   --     vim.cmd.colors('ayu')
-  --   end,
-  -- },
-  -- {
-  --   'Shatur/neovim-ayu',
-  --   priority = 1000,
-  --   config = function()
-  --     require('ayu').setup({
-  --       terminal = true,
-  --     })
-  --     vim.cmd.colors('ayu-dark')
   --   end,
   -- },
   -- {
@@ -109,18 +109,6 @@ return {
   --   end,
   -- },
   -- {
-  --   'ViViDboarder/wombat.nvim',
-  --   dependencies = { { 'rktjmp/lush.nvim' } },
-  --   opts = {
-  --     -- You can optionally specify the name of the ansi colors you wish to use
-  --     -- This defaults to nil and will use the default ansi colors for the theme
-  --     ansi_colors_name = nil,
-  --   },
-  --   config = function()
-  --     vim.cmd.colorscheme('wombat')
-  --   end,
-  -- },
-  -- {
   --   'projekt0n/github-nvim-theme',
   --   name = 'github-theme',
   --   lazy = false, -- make sure we load this during startup if it is your main colorscheme
@@ -149,6 +137,17 @@ return {
       user_default_options = {
         names = false,
       },
+    },
+  },
+  {
+    'f-person/auto-dark-mode.nvim',
+    opts = {
+      set_dark_mode = function()
+        vim.cmd.colors('ayu-dark')
+      end,
+      set_light_mode = function()
+        vim.cmd.colors('season')
+      end,
     },
   },
 }
