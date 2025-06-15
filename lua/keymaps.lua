@@ -36,4 +36,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Yank current buffer name
+vim.keymap.set('n', '<leader>ya', '<cmd>let @+ = expand("%:p")<CR>', { desc = '[Y]ank [A]bsolute current buffer name'})
+vim.keymap.set('n', '<leader>yr', '<cmd>let @+ = expand("%")<CR>', { desc = '[Y]ank [R]elative current buffer name'})
+vim.keymap.set('n', '<leader>yb', '<cmd>let @+ = expand("%:t")<CR>', { desc = '[Y]ank current [B]uffer name'})
+
 -- vim: ts=2 sts=2 sw=2 et
