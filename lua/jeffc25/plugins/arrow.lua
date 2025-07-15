@@ -8,11 +8,12 @@ return {
   opts = {
     show_icons = true,
     leader_key = ';', -- Recommended to be a single key
-    buffer_leader_key = 'm', -- Per Buffer Mappings
-    style = "auto",
+    buffer_leader_key = 'M', -- Per Buffer Mappings
+    hide_buffer_handbook = true,
+    style = 'auto',
     window = {
-      border = 'rounded'
-    }
+      border = 'rounded',
+    },
   },
 }
 
