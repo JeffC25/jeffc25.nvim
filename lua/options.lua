@@ -54,4 +54,26 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- cd when launching directory
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function()
+    local arg = vim.fn.argv(0)
+    if arg then
+      local arg_str = type(arg) == 'table' and arg[1] or arg
+      if type(arg_str) == 'string' then
+        local actual_path
+        if string.match(arg_str, '^oil://') then
+          actual_path = string.gsub(arg_str, '^oil://', '')
+        else
+          actual_path = arg_str
+        end
+
+        if actual_path and vim.fn.isdirectory(actual_path) == 1 then
+          vim.cmd('cd ' .. vim.fn.fnameescape(actual_path))
+        end
+      end
+    end
+  end,
+})
+
 -- vim: ts=2 sts=2 sw=2 et
