@@ -25,8 +25,10 @@ return {
     'marko-cerovac/material.nvim',
     priority = 1000,
     config = function()
-      require('material').setup({ lualine_style = 'stealth' })
-      vim.g.material_style = 'darker'
+      require('material').setup({
+        lualine_style = 'stealth',
+        disable = { background = true },
+      })
     end,
   },
 
@@ -41,9 +43,15 @@ return {
     opts = {
       set_dark_mode = function()
         vim.cmd.colors('material-darker')
+
+        vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
+        vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE' })
       end,
       set_light_mode = function()
-        vim.cmd.colors('season')
+        vim.cmd.colors('material-lighter')
+
+        vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
+        vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE' })
       end,
     },
   },

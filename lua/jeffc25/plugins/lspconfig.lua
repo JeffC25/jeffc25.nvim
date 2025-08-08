@@ -23,8 +23,15 @@ return {
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
-      -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {} },
+      -- Status updates for LSP.
+      {
+        'j-hui/fidget.nvim',
+        opts = {
+          notification = {
+            window = { winblend = 0, align = "top", normal_hl = "Function" },
+          },
+        },
+      },
 
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
