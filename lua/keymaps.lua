@@ -6,7 +6,32 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>q', function()
+  local winid = vim.fn.getloclist(0, { winid = 0 }).winid
+  -- loclist not open → populate + open
+  if winid == 0 then
+    vim.diagnostic.setloclist()
+  else
+    -- already in loclist → close it
+    if vim.fn.win_getid() == winid then
+      vim.cmd('lclose')
+      -- loclist is open but not focused → jump there
+    else
+      vim.cmd('lopen')
+      vim.api.nvim_set_current_win(winid)
+    end
+  end
+end, { desc = 'Toggle/navigate diagnostic [Q]uickfix list' })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'qf', -- both quickfix and loclist use this filetype
+  callback = function(event)
+    vim.keymap.set('n', 'q', '<cmd>lclose<CR>', {
+      buffer = event.buf,
+      silent = true,
+    })
+  end,
+})
 
 -- Exit terminal mode in builtin terminal with shortcut (default: <C-\><C-n>)
 -- NOTE: Won't work in all terminal emulators/tmux/etc.
@@ -37,8 +62,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Yank current buffer name
-vim.keymap.set('n', '<leader>ya', '<cmd>let @+ = expand("%:p")<CR>', { desc = '[Y]ank [A]bsolute current buffer name'})
-vim.keymap.set('n', '<leader>yr', '<cmd>let @+ = expand("%")<CR>', { desc = '[Y]ank [R]elative current buffer name'})
-vim.keymap.set('n', '<leader>yb', '<cmd>let @+ = expand("%:t")<CR>', { desc = '[Y]ank current [B]uffer name'})
+vim.keymap.set('n', '<leader>ya', '<cmd>let @+ = expand("%:p")<CR>', { desc = '[Y]ank [A]bsolute current buffer name' })
+vim.keymap.set('n', '<leader>yr', '<cmd>let @+ = expand("%")<CR>', { desc = '[Y]ank [R]elative current buffer name' })
+vim.keymap.set('n', '<leader>yb', '<cmd>let @+ = expand("%:t")<CR>', { desc = '[Y]ank current [B]uffer name' })
 
 -- vim: ts=2 sts=2 sw=2 et
