@@ -5,7 +5,6 @@ return {
   },
   {
     'stevearc/oil.nvim',
-
     config = function()
       require('oil').setup({
         win_options = {
@@ -13,8 +12,24 @@ return {
         },
         skip_confirm_for_simple_edits = true,
       })
-      vim.keymap.set('n', '<leader>o', '<CMD>Oil --float<CR>', { desc = 'Open parent directory' })
-      vim.keymap.set('n', '<leader>O', '<CMD>Oil . --float<CR>', { desc = 'Open project root directory' })
+
+      -- Toggle parent directory
+      vim.keymap.set('n', '<leader>o', function()
+        if vim.bo.filetype == 'oil' then
+          vim.cmd('close')
+        else
+          vim.cmd('Oil --float')
+        end
+      end, { desc = 'Toggle Oil (parent dir)' })
+
+      -- Toggle project root
+      vim.keymap.set('n', '<leader>O', function()
+        if vim.bo.filetype == 'oil' then
+          vim.cmd('close')
+        else
+          vim.cmd('Oil . --float')
+        end
+      end, { desc = 'Toggle Oil (project root)' })
     end,
   },
 }
