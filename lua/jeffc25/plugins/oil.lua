@@ -18,7 +18,7 @@ return {
         if vim.bo.filetype == 'oil' then
           vim.cmd('close')
         else
-          vim.cmd('Oil --float')
+          vim.cmd('Oil --float --preview')
         end
       end, { desc = 'Toggle Oil (parent dir)' })
 
@@ -27,7 +27,7 @@ return {
         if vim.bo.filetype == 'oil' then
           vim.cmd('close')
         else
-          vim.cmd('Oil . --float')
+          vim.cmd('Oil . --float --preview')
         end
       end, { desc = 'Toggle Oil (project root)' })
     end,
