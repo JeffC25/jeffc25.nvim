@@ -66,4 +66,7 @@ vim.keymap.set('n', '<leader>ya', '<cmd>let @+ = expand("%:p")<CR>', { desc = '[
 vim.keymap.set('n', '<leader>yr', '<cmd>let @+ = expand("%")<CR>', { desc = '[Y]ank [R]elative current buffer name' })
 vim.keymap.set('n', '<leader>yb', '<cmd>let @+ = expand("%:t")<CR>', { desc = '[Y]ank current [B]uffer name' })
 
+-- Map Shift+Tab to go to the previous pane
+vim.api.nvim_set_keymap('n', '<S-Tab>', '<C-w><C-p>', { noremap = true, silent = true })
+
 -- vim: ts=2 sts=2 sw=2 et

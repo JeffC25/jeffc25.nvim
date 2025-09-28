@@ -49,7 +49,18 @@ return {
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { 'filename' },
+        lualine_c = {
+          {
+            'filename',
+            path = 1,
+            shorting_target = 40,
+            symbols = {
+              modified = '[+]',
+              readonly = '',
+              unnamed = '[No Name]',
+            },
+          },
+        },
         lualine_x = {},
         lualine_y = {},
         lualine_z = {},
