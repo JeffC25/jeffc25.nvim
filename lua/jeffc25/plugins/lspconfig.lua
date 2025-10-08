@@ -28,7 +28,7 @@ return {
         'j-hui/fidget.nvim',
         opts = {
           notification = {
-            window = { winblend = 0, align = "top", normal_hl = "Function" },
+            window = { winblend = 0, align = 'top', normal_hl = 'Function' },
           },
         },
       },
@@ -147,8 +147,16 @@ return {
         ts_ls = {},
         tailwindcss = {},
         jsonls = {},
-        zls = {},
-        -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
+        zls = {
+          settings = {
+            zls = {
+              {
+                enable_build_on_save = true,
+                build_on_save_step = 'check',
+              },
+            },
+          },
+        },
 
         lua_ls = {
           -- cmd = { ... },
@@ -195,8 +203,13 @@ return {
           end,
         },
       })
-      lspconfig.sourcekit.setup({
-        -- root_dir = lspconfig.util.root_pattern('.git', 'Package.swift', 'compile_commands.json'),
+
+      -- non-Mason LSPs
+      lspconfig['sourcekit'].setup({
+        capabilities = capabilities,
+        cmd = { 'sourcekit-lsp' },
+        root_dir = lspconfig.util.root_pattern('Package.swift', '.git', 'compile_commands.json', 'buildServer.json'),
+        filetypes = { 'swift', 'objective-c', 'objective-cpp' },
       })
     end,
   },
