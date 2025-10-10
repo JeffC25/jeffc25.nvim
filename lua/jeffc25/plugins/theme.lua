@@ -18,6 +18,7 @@ return {
   { 'NLKNguyen/papercolor-theme' },
   { 'rebelot/kanagawa.nvim' },
   { 'bluz71/vim-moonfly-colors', name = 'moonfly' },
+  { 'sainnhe/sonokai' },
   {
     'zenbones-theme/zenbones.nvim',
     config = function()
@@ -46,7 +47,7 @@ return {
     'f-person/auto-dark-mode.nvim',
     opts = {
       set_dark_mode = function()
-        vim.cmd.colors('nordfox')
+        vim.cmd.colors('carbonfox')
       end,
       set_light_mode = function()
         vim.cmd.colors('season')
