@@ -39,6 +39,7 @@ return {
     config = function()
       -- See `:help lsp-vs-treesitter`
       local lspconfig = require('lspconfig')
+      local virtual_text_enabled = false
 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
@@ -81,7 +82,13 @@ return {
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
           -- Show diagnostics info for word under cursor
-          map('<leader>dd', vim.diagnostic.open_float, 'Open float')
+          map('<leader>dw', vim.diagnostic.open_float, '[D]iagnostics for current [W]ord')
+
+          map('<leader>dt', function()
+            virtual_text_enabled = not virtual_text_enabled
+            vim.diagnostic.config({ virtual_text = virtual_text_enabled })
+            print('Virtual Text ' .. (virtual_text_enabled and 'Enabled' or 'Disabled'))
+          end, 'Inline [D]iagnostics [T]oggle')
 
           -- Following two autocommands used to highlight references of the
           -- word under cursor (when cursor rests there for a little while).
