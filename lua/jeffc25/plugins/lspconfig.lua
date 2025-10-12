@@ -80,6 +80,9 @@ return {
           -- Go to declaration (not definition)
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
+          -- Show diagnostics info for word under cursor
+          map('<leader>dd', vim.diagnostic.open_float, 'Open float')
+
           -- Following two autocommands used to highlight references of the
           -- word under cursor (when cursor rests there for a little while).
           -- See `:help CursorHold`
