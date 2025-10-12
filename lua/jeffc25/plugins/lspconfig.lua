@@ -39,7 +39,8 @@ return {
     config = function()
       -- See `:help lsp-vs-treesitter`
       local lspconfig = require('lspconfig')
-      local virtual_text_enabled = false
+      local virtual_text_enabled = true
+      vim.diagnostic.config({ virtual_text = virtual_text_enabled })
 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
@@ -84,6 +85,7 @@ return {
           -- Show diagnostics info for word under cursor
           map('<leader>dw', vim.diagnostic.open_float, '[D]iagnostics for current [W]ord')
 
+          -- Show diagonstics info on same line
           map('<leader>dt', function()
             virtual_text_enabled = not virtual_text_enabled
             vim.diagnostic.config({ virtual_text = virtual_text_enabled })
