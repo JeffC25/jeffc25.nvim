@@ -90,7 +90,7 @@ return {
             virtual_text_enabled = not virtual_text_enabled
             vim.diagnostic.config({ virtual_text = virtual_text_enabled })
             print('Virtual Text ' .. (virtual_text_enabled and 'Enabled' or 'Disabled'))
-          end, '[T]oggle inline [D]iagnostics')
+          end, 'LSP: [T]oggle inline [D]iagnostics')
 
           -- Following two autocommands used to highlight references of the
           -- word under cursor (when cursor rests there for a little while).
