@@ -31,17 +31,18 @@ return {
     config = function()
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+      local actions = require('telescope.actions')
       require('telescope').setup({
         defaults = {
           mappings = {
-            i = { ['<c-enter>'] = 'to_fuzzy_refine', ['<C-h>'] = 'which_key', ['<c-d>'] = require('telescope.actions').delete_buffer },
-            n = { ['<c-d>'] = require('telescope.actions').delete_buffer },
-          },
-        },
-        -- pickers = {}
-        extensions = {
-          ['ui-select'] = {
-            require('telescope.themes').get_dropdown(),
+            i = {
+              ['<C-Enter>'] = 'to_fuzzy_refine',
+              ['<C-h>'] = 'which_key',
+              ['<C-d>'] = actions.delete_buffer,
+            },
+            n = {
+              ['<C-d>'] = actions.delete_buffer,
+            },
           },
         },
       })

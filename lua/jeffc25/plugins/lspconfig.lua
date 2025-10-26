@@ -192,7 +192,6 @@ return {
       -- Press `g?` for help in Mason menu.
       --
       -- `mason` set up above: configure options in `dependencies` table for `nvim-lspconfig`.
-      --
       -- Add other tools here for Mason to install
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
@@ -217,7 +216,7 @@ return {
       })
 
       -- non-Mason LSPs
-      lspconfig['sourcekit'].setup({
+      vim.lsp.config['sourcekit'] =({
         capabilities = capabilities,
         cmd = { 'sourcekit-lsp' },
         root_dir = lspconfig.util.root_pattern('Package.swift', '.git', 'compile_commands.json', 'buildServer.json'),
