@@ -38,7 +38,6 @@ return {
     },
     config = function()
       -- See `:help lsp-vs-treesitter`
-      local lspconfig = require('lspconfig')
       local virtual_text_enabled = true
       vim.diagnostic.config({ virtual_text = virtual_text_enabled })
 
@@ -216,11 +215,18 @@ return {
       })
 
       -- non-Mason LSPs
-      vim.lsp.config['sourcekit'] =({
-        capabilities = capabilities,
+      vim.lsp.config['sourcekit'] = {
         cmd = { 'sourcekit-lsp' },
-        root_dir = lspconfig.util.root_pattern('Package.swift', '.git', 'compile_commands.json', 'buildServer.json'),
+        capabilities = capabilities,
+        root_dir = vim.fs.root(0, { 'Package.swift', '.git', 'compile_commands.json', 'buildServer.json' }),
         filetypes = { 'swift', 'objective-c', 'objective-cpp' },
+      }
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = { 'swift', 'objective-c', 'objective-cpp' },
+        callback = function()
+          vim.lsp.start(vim.lsp.config['sourcekit'])
+        end,
       })
     end,
   },
