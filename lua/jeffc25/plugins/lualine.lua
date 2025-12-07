@@ -8,8 +8,7 @@ return {
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
-          statusline = {},
-          winbar = {},
+          statusline = {}, winbar = {},
         },
         ignore_focus = {},
         always_divide_middle = true,
@@ -35,13 +34,26 @@ return {
         },
         lualine_b = {},
         lualine_c = {
-          { 'filename' },
+          {
+            'filename',
+            path = 1,
+            shorting_target = 40,
+            symbols = {
+              modified = '[+]',
+              readonly = '',
+              unnamed = '[No Name]',
+            },
+          },
           { 'diagnostics' },
         },
         lualine_x = {
           { 'diff', colored = true },
           { 'encoding' },
-          { 'filetype' },
+          { 'location' },
+          {
+            'filetype',
+            icon_only = true,
+          },
         },
         lualine_y = {},
         lualine_z = {},
@@ -57,7 +69,7 @@ return {
             symbols = {
               modified = '[+]',
               readonly = '',
-              unnamed = '[No Name]',
+              unnamed = '[Unnamed]',
             },
           },
         },

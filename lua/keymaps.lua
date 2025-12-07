@@ -45,24 +45,14 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move focus to the lower window'
 vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move focus to the upper window' })
 
 -- Resizing windows
-vim.keymap.set('n', '<A-Left>',  '<C-w><')
+vim.keymap.set('n', '<A-Left>', '<C-w><')
 vim.keymap.set('n', '<A-Right>', '<C-w>>')
-vim.keymap.set('n', '<A-Up>',    '<C-w>+')
-vim.keymap.set('n', '<A-Down>',  '<C-w>-')
+vim.keymap.set('n', '<A-Up>', '<C-w>+')
+vim.keymap.set('n', '<A-Down>', '<C-w>-')
 
 -- Map CTRL + / to act like `gc` (toggle comments)
 vim.api.nvim_set_keymap('n', '<C-/>', 'gcc', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('v', '<C-/>', 'gc', { noremap = false, silent = true })
-
--- Highlight when yanking (copying) text
--- See `:help vim.highlight.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
 
 -- Yank current buffer name
 vim.keymap.set('n', '<leader>ya', '<cmd>let @+ = expand("%:p")<CR>', { desc = '[Y]ank [A]bsolute current buffer name' })
@@ -77,11 +67,16 @@ vim.keymap.set('n', '<Leader>tl', ':tablast<CR>', { noremap = true, silent = tru
 vim.keymap.set('n', '<Leader>tw', ':tabclose<CR>', { noremap = true, silent = true, desc = 'Close the current tab' })
 vim.keymap.set('n', '<Leader>tN', ':tabnew<CR>', { noremap = true, silent = true, desc = 'Create a new tab' })
 for i = 1, 9 do
-  vim.keymap.set('n', '<Leader>t' .. i, ':tabn ' .. i .. '<CR>', { noremap = true, silent = true, desc = 'Move focus to tab' .. i })
+  vim.keymap.set('n', '<Leader>' .. i, ':tabn ' .. i .. '<CR>', { noremap = true, silent = true, desc = 'Move focus to tab' .. i })
   vim.keymap.set('n', 'C-' .. i, ':tabn ' .. i .. '<CR>', { noremap = true, silent = true, desc = 'Move focus to tab' .. i })
 end
 
 -- Go to the previous window
 vim.api.nvim_set_keymap('n', '<S-Tab>', '<C-w><C-p>', { noremap = true, silent = true, desc = 'Move focus to the previous window' })
+
+-- Print current buffer full path
+vim.keymap.set("n", "<leader>fp", function()
+  print(vim.fn.expand("%:p"))
+end, { desc = "Show full file path" })
 
 -- vim: ts=2 sts=2 sw=2 et
