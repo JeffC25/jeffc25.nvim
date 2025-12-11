@@ -54,6 +54,9 @@ vim.keymap.set('n', '<A-Down>', '<C-w>-')
 vim.api.nvim_set_keymap('n', '<C-/>', 'gcc', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('v', '<C-/>', 'gc', { noremap = false, silent = true })
 
+-- Map CTRL + i to act like `=` (auto-indent)
+vim.api.nvim_set_keymap('v', '<C-i>', '=', { noremap = false, silent = true })
+
 -- Yank current buffer name
 vim.keymap.set('n', '<leader>ya', '<cmd>let @+ = expand("%:p")<CR>', { desc = '[Y]ank [A]bsolute current buffer name' })
 vim.keymap.set('n', '<leader>yr', '<cmd>let @+ = expand("%")<CR>', { desc = '[Y]ank [R]elative current buffer name' })
