@@ -43,6 +43,8 @@ require('lazy').setup({
 
   require('jeffc25/plugins/icons'),
 
+  require('jeffc25/plugins/flash'),
+
   require('jeffc25/plugins/xcode'),
 
   -- require('jeffc25/plugins/harpoon'),
