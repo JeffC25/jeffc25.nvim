@@ -19,6 +19,8 @@ require('lazy').setup({
 
   require('jeffc25/plugins/autopairs'),
 
+  require('jeffc25/plugins/autotag'),
+
   require('jeffc25/plugins/theme'),
 
   require('jeffc25/plugins/neo-tree'),
