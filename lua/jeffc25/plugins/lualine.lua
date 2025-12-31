@@ -1,6 +1,9 @@
 return {
   'nvim-lualine/lualine.nvim',
   config = function()
+    vim.opt.showcmd = false
+    vim.opt.cmdheight = 0
+    vim.opt.ruler = false
     require('lualine').setup({
       options = {
         icons_enabled = true,
@@ -8,7 +11,8 @@ return {
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
-          statusline = {}, winbar = {},
+          statusline = {},
+          winbar = {},
         },
         ignore_focus = {},
         always_divide_middle = true,

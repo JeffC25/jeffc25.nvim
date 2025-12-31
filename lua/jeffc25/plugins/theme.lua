@@ -1,4 +1,5 @@
 return {
+  -- NOTE: Themes
   { 'JeffC25/season.nvim', opt = { terminal = true } },
   -- { dir = '~/dev/nvim/season.nvim/', opt = { terminal = true } },
   { 'folke/tokyonight.nvim' },
@@ -6,7 +7,6 @@ return {
   { 'Shatur/neovim-ayu', opt = { terminal = true } },
   { 'rose-pine/neovim', name = 'rose-pine' },
   { 'navarasu/onedark.nvim', opt = { style = 'darker' } },
-  -- { 'nuvic/flexoki-nvim' },
   { 'kepano/flexoki-neovim', name = 'flexoki' },
   { 'neanias/everforest-nvim' },
   { 'catppuccin/nvim', name = 'catppuccin' },
@@ -19,24 +19,11 @@ return {
   { 'rebelot/kanagawa.nvim' },
   { 'bluz71/vim-moonfly-colors', name = 'moonfly' },
   { 'sainnhe/sonokai' },
-  {
-    'zenbones-theme/zenbones.nvim',
-    config = function()
-      vim.g.zenbones_darken_comments = 45
-      vim.cmd.background = 'light'
-    end,
-  },
-  {
-    'marko-cerovac/material.nvim',
-    config = function()
-      require('material').setup({
-        lualine_style = 'stealth',
-        -- disable = { background = true },
-        high_visibility = { darker = true },
-      })
-    end,
-  },
+  {'zenbones-theme/zenbones.nvim', config = function() vim.g.zenbones_darken_comments = 45 vim.cmd.background = 'light' end,},
+  {'marko-cerovac/material.nvim', config = function() require('material').setup({ lualine_style = 'stealth', disable = { background = true }, high_visibility = { darker = true }, }) end,},
+  {'maxmx03/solarized.nvim', lazy = false, priority = 1000, opts = { style = "light" },},
 
+  -- NOTE: Misc
   { 'rktjmp/lush.nvim' },
   {
     'catgoose/nvim-colorizer.lua',
