@@ -39,7 +39,7 @@ require('lazy').setup({
 
   require('jeffc25/plugins/debugger'),
 
-  require('jeffc25/plugins/arrow'),
+  -- require('jeffc25/plugins/arrow'),
 
   require('jeffc25/plugins/icons'),
 
@@ -49,7 +49,7 @@ require('lazy').setup({
 
   -- require('jeffc25/plugins/ufo'),
 
-  -- require('jeffc25/plugins/harpoon'),
+  require('jeffc25/plugins/harpoon'),
 
   -- require('jeffc25/plugins/leetcode'),
 

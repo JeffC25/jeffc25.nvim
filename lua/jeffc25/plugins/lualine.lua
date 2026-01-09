@@ -1,6 +1,26 @@
 return {
   'nvim-lualine/lualine.nvim',
   config = function()
+    local function macro_recording()
+      local reg = vim.fn.reg_recording()
+      if reg == '' then
+        return ''
+      end
+      return '  @' .. reg
+    end
+
+    -- vim.api.nvim_create_autocmd('RecordingEnter', {
+    --   callback = function()
+    --     require('lualine').refresh()
+    --   end,
+    -- })
+    --
+    -- vim.api.nvim_create_autocmd('RecordingLeave', {
+    --   callback = function()
+    --     require('lualine').refresh()
+    --   end,
+    -- })
+
     vim.opt.showcmd = false
     vim.opt.cmdheight = 0
     vim.opt.ruler = false
@@ -36,7 +56,10 @@ return {
             end,
           },
         },
-        lualine_b = {},
+        lualine_b = {
+          macro_recording,
+          'searchcount'
+        },
         lualine_c = {
           {
             'filename',
