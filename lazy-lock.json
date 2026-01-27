@@ -19,6 +19,7 @@
   "kanagawa.nvim": { "branch": "master", "commit": "aef7f5cec0a40dbe7f3304214850c472e2264b10" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "lazydev.nvim": { "branch": "main", "commit": "5231c62aa83c2f8dc8e7ba957aa77098cda1257d" },
+  "leetcode.nvim": { "branch": "master", "commit": "fdd3f91800b3983e27bc9fcfb99cfa7293d7f11a" },
   "lualine.nvim": { "branch": "master", "commit": "47f91c416daef12db467145e16bed5bbfe00add8" },
   "lush.nvim": { "branch": "main", "commit": "9c60ec2279d62487d942ce095e49006af28eed6e" },
   "luvit-meta": { "branch": "main", "commit": "0ea4ff636c5bb559ffa78108561d0976f4de9682" },

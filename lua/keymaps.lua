@@ -78,8 +78,6 @@ end
 vim.api.nvim_set_keymap('n', '<S-Tab>', '<C-w><C-p>', { noremap = true, silent = true, desc = 'Move focus to the previous window' })
 
 -- Print current buffer full path
-vim.keymap.set("n", "<leader>fp", function()
-  print(vim.fn.expand("%:p"))
-end, { desc = "Show full file path" })
+vim.keymap.set("n", "<leader>fp", ":echo expand('%:p')<CR>", { desc = "Show full file path" })
 
 -- vim: ts=2 sts=2 sw=2 et
