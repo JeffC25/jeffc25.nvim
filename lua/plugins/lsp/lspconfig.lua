@@ -32,9 +32,6 @@ return {
           },
         },
       },
-
-      -- Allows extra capabilities provided by nvim-cmp
-      'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
       -- See `:help lsp-vs-treesitter`
@@ -141,7 +138,7 @@ return {
 
       -- Additional capabilities with nvim cmp, broadcast to LSP servers.
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
       -- Enable additional  language servers
       --  Add any additional override configuration in the following tables. Available keys are:
@@ -168,7 +165,6 @@ return {
             },
           },
         },
-
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -209,7 +205,8 @@ return {
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (Ex: turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
+            vim.lsp.config(server_name, server)
+            vim.lsp.enable(server_name)
           end,
         },
       })
@@ -229,28 +226,7 @@ return {
         end,
       })
     end,
-  },
-  {
-    'windwp/nvim-ts-autotag',
-    config = function()
-      require('nvim-ts-autotag').setup({
-        opts = {
-          -- Defaults
-          enable_close = true, -- Auto close tags
-          enable_rename = true, -- Auto rename pairs of tags
-          enable_close_on_slash = false, -- Auto close on trailing </
-        },
-        -- Also override individual filetype configs, these take priority.
-        -- Empty by default, useful if one of the "opts" global settings
-        -- doesn't work well in a specific filetype
-        per_filetype = {
-          ['html'] = {
-            enable_close = true,
-          },
-        },
-      })
-    end,
-  },
+  }
 }
 
 -- vim: ts=2 sts=2 sw=2 et

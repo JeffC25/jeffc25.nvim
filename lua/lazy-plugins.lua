@@ -1,59 +1,45 @@
 -- Configure and install plugins
 
 require('lazy').setup({
-  'tpope/vim-sleuth',
+  require('plugins.utils.vim-sleuth'),
 
-  require('plugins/tmux'),
+  require('plugins.debugger.debugger'),
 
-  require('plugins/telescope'),
+  require('plugins.git.gitsigns'),
+  require('plugins.git.vim-fugitive'),
 
-  require('plugins/treesitter'),
+  require('plugins.lang.go'),
+  require('plugins.lang.rust'),
+  require('plugins.lang.xcode'),
 
-  require('plugins/git'),
+  require('plugins.lsp.autopairs'),
+  require('plugins.lsp.blink'),
+  require('plugins.lsp.conform'),
+  require('plugins.lsp.lspconfig'),
 
-  require('plugins/which-key'),
+  require('plugins.nav.flash'),
+  require('plugins.nav.harpoon'),
+  require('plugins.nav.neo-tree'),
+  require('plugins.nav.oil'),
 
-  require('plugins/lspconfig'),
+  require('plugins.telescope.telescope'),
+  require('plugins.treesitter.treesitter'),
 
-  require('plugins/conform'),
+  require('plugins.ui.lualine'),
+  require('plugins.ui.theme'),
+  require('plugins.ui.todo-comments'),
+  require('plugins.ui.icons'),
+  require('plugins.ui.indent-guides'),
 
-  require('plugins/cmp'),
+  require('plugins.utils.mini'),
+  require('plugins.utils.session'),
+  require('plugins.utils.tmux'),
+  require('plugins.utils.which-key'),
 
-  require('plugins/autopairs'),
-
-  require('plugins/theme'),
-
-  require('plugins/neo-tree'),
-
-  require('plugins/todo-comments'),
-
-  require('plugins/mini'),
-
-  require('plugins/lualine'),
-
-  require('plugins/indent-guides'),
-
-  require('plugins/oil'),
-
-  require('plugins/session'),
-
-  require('plugins/debugger'),
-
-  -- require('plugins/arrow'),
-
-  require('plugins/icons'),
-
-  require('plugins/flash'),
-
-  require('plugins/xcode'),
-
-  -- require('plugins/ufo'),
-
-  require('plugins/harpoon'),
-
-  require('plugins/leetcode'),
-
-  -- require('plugins/visual-multi'),
+  -- require('plugins.nav.arrow'),
+  -- require('plugins.lsp.cmp'),
+  -- require('plugins.misc.leetcode'),
+  -- require('plugins.utils.visual-multi'),
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {

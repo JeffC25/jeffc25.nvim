@@ -64,10 +64,7 @@ return {
         map('n', '<leader>Gtb', gitsigns.toggle_current_line_blame, { desc = 'git [T]oggle git show [b]lame line' })
       end,
     },
-  },
-  {
-    'tpope/vim-fugitive',
-  },
+  }
 }
 
 -- vim: ts=2 sts=2 sw=2 et
