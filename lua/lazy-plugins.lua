@@ -30,6 +30,7 @@ require('lazy').setup({
   require('plugins.ui.todo-comments'),
   require('plugins.ui.icons'),
   require('plugins.ui.indent-guides'),
+  require('plugins.ui.twilight'),
   require('plugins.ui.zen'),
 
   require('plugins.utils.mini'),
