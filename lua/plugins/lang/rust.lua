@@ -10,11 +10,11 @@ vim.g.rustaceanvim = {
 
       vim.keymap.set('n', '<leader>en', function()
         vim.cmd.RustLsp('explainError', 'cycle')
-      end, { desc = '[E]xplain [Next] error' })
+      end, { desc = '[E]xplain [N]ext error' })
 
       vim.keymap.set('n', '<leader>ep', function()
         vim.cmd.RustLsp('explainError', 'cycle_prev')
-      end, { desc = '[E]xplain [Previous] error' })
+      end, { desc = '[E]xplain [P]revious error' })
 
       vim.keymap.set('n', '<leader>dr', function()
         vim.cmd.RustLsp('debuggables')
@@ -24,7 +24,7 @@ vim.g.rustaceanvim = {
       -- Keymap overrides vim.lsp.buf.codeAction() (no grouping)
       vim.keymap.set('n', '<leader>ca', function()
         vim.cmd.RustLsp('codeAction')
-      end, { silent = true, buffer = bufnr })
+      end, { desc = '[C]ode [A]ctions', silent = true, buffer = bufnr })
 
       -- Override built-in hover keymap with rustaceanvim's hover actions
       vim.keymap.set('n', 'K', function()

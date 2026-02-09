@@ -16,6 +16,8 @@ return {
   {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
+    priority = 1000,
+    lazy = false,
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents
@@ -37,6 +39,8 @@ return {
       -- See `:help lsp-vs-treesitter`
       local virtual_text_enabled = true
       vim.diagnostic.config({ virtual_text = virtual_text_enabled })
+
+      vim.lsp.inlay_hint.enable(false)
 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
