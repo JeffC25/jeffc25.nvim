@@ -23,7 +23,6 @@ return {
   {'marko-cerovac/material.nvim', config = function() require('material').setup({ lualine_style = 'stealth', disable = { background = true }, high_visibility = { darker = true }, }) end,},
   {'maxmx03/solarized.nvim', lazy = false, priority = 1000, opts = { style = "light" },},
 
-  -- NOTE: Misc
   { 'rktjmp/lush.nvim' },
   {
     'catgoose/nvim-colorizer.lua',
