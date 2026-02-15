@@ -36,7 +36,7 @@ return {
         vim.cmd.colors('sonokai')
       end,
       set_light_mode = function()
-        vim.cmd.colors('season')
+        vim.cmd.colors('flexoki-light')
       end,
     },
   },
