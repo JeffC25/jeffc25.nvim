@@ -21,9 +21,13 @@ return {
               ['<C-Enter>'] = 'to_fuzzy_refine',
               ['<C-h>'] = 'which_key',
               ['<C-d>'] = actions.delete_buffer,
+              ['<C-e>'] = actions.preview_scrolling_down,
+              ['<C-y>'] = actions.preview_scrolling_up,
             },
             n = {
               ['<C-d>'] = actions.delete_buffer,
+              ['<C-e>'] = actions.preview_scrolling_down,
+              ['<C-y>'] = actions.preview_scrolling_up,
             },
           },
         },
