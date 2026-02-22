@@ -17,7 +17,6 @@ require('lazy').setup({
   require('plugins.lsp.conform'),
   require('plugins.lsp.lspconfig'),
 
-  require('plugins.nav.flash'),
   require('plugins.nav.harpoon'),
   require('plugins.nav.neo-tree'),
   require('plugins.nav.oil'),
@@ -38,6 +37,7 @@ require('lazy').setup({
   require('plugins.utils.tmux'),
   require('plugins.utils.which-key'),
 
+  -- require('plugins.nav.flash'),
   -- require('plugins.nav.arrow'),
   -- require('plugins.lsp.cmp'),
   -- require('plugins.misc.leetcode'),
