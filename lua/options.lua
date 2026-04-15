@@ -45,6 +45,9 @@ vim.opt.splitbelow = true
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
+-- Fill chars for empty lines
+vim.opt.fillchars = { eob = " " }
+
 -- Preview substitutions live
 vim.opt.inccommand = 'split'
 
