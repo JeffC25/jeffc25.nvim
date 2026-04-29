@@ -61,7 +61,7 @@ return {
           ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
           -- Manually trigger a completion from nvim-cmp.
-          ['<C-Space>'] = cmp.mapping.complete({}),
+          ['<C-Tab>'] = cmp.mapping.complete({}),
 
           -- Snippet navigation
           ['<C-l>'] = cmp.mapping(function()
