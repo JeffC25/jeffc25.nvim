@@ -75,6 +75,9 @@ vim.o.foldexpr = 'v:lua.vim.lsp.foldexpr()'
 vim.o.foldtext = ""
 vim.opt.foldcolumn = "0"
 
+-- Preserve cursor location when moving buffers
+vim.opt.hidden = false
+
 -- Update directory when launching
 vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
