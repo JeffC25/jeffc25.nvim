@@ -15,6 +15,7 @@ require('lazy').setup({
 
   -- LSP plugins
   require('plugins.lsp.autopairs'),
+  require('plugins.lsp.autotag'),
   require('plugins.lsp.blink'),
   require('plugins.lsp.conform'),
   require('plugins.lsp.lspconfig'),
