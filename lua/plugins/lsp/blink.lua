@@ -31,7 +31,7 @@ return {
       ['<C-e>'] = { 'hide', 'fallback' },
       ['<C-y>'] = { 'select_and_accept', 'fallback' },
       ['<Enter>'] = { 'select_and_accept', 'fallback' },
-      ['<Tab>'] = { 'select_and_accept', 'snippet_forward', 'fallback' },
+      ['<Tab>'] = { 'snippet_forward', 'fallback' },
       ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
 
       ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
