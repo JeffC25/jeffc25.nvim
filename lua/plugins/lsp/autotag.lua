@@ -12,9 +12,9 @@ return {
       -- Empty by default, useful if one of the "opts" global settings
       -- doesn't work well in a specific filetype
       per_filetype = {
-        ['html'] = {
-          enable_close = true,
-        },
+        html = { enable_close = true },
+        jsx = { enable_close = true },
+        tsx = { enable_close = true },
       },
     })
   end,

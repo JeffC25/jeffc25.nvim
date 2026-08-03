@@ -8,7 +8,7 @@ return {
     opts = {
       library = {
         -- Load luvit types when the `vim.uv` word is found
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
       },
     },
   },
@@ -130,6 +130,18 @@ return {
         end,
       })
 
+      -- See: https://github.com/armsnyder/openapi-language-server
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'yaml',
+        callback = function()
+          vim.lsp.start({
+            cmd = { 'openapi-language-server' },
+            filetypes = { 'yaml' },
+            root_dir = vim.fn.getcwd(),
+          })
+        end,
+      })
+
       -- Change diagnostic symbols in the sign column (gutter)
       if vim.g.have_nerd_font then
         local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
@@ -230,7 +242,7 @@ return {
         end,
       })
     end,
-  }
+  },
 }
 
 -- vim: ts=2 sts=2 sw=2 et

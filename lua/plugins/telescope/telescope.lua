@@ -14,8 +14,10 @@ return {
     },
     config = function()
       local actions = require('telescope.actions')
+      local layout_actions = require('telescope.actions.layout')
       require('telescope').setup({
         defaults = {
+          path_display = { 'truncate' },
           mappings = {
             i = {
               ['<C-Enter>'] = 'to_fuzzy_refine',
@@ -28,6 +30,7 @@ return {
               ['<C-d>'] = actions.delete_buffer,
               ['<C-e>'] = actions.preview_scrolling_down,
               ['<C-y>'] = actions.preview_scrolling_up,
+              ['t'] = layout_actions.cycle_layout_next,
             },
           },
         },

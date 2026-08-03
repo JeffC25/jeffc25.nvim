@@ -41,6 +41,7 @@ return {
         json = { 'fixjson', 'prettier' },
         xml = { 'xmlformatter' },
         go = { 'gofumpt', 'goimports' },
+        sql = { 'sql_formatter' },
       },
     },
   },
