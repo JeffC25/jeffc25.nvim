@@ -12,6 +12,8 @@ vim.opt.relativenumber = true
 
 vim.opt.mouse = 'a'
 
+-- vim.opt.tabstop = 4
+
 -- Mode already in status line
 vim.opt.showmode = false
 
@@ -43,10 +45,10 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 -- See `:help 'list'` and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '· ', trail = '·', nbsp = '␣' }
 
--- Fill chars for empty lines
-vim.opt.fillchars = { eob = " " }
+-- See `:help 'fillchars'`
+-- vim.opt.fillchars = { eob = ' ' }
 
 -- Preview substitutions live
 vim.opt.inccommand = 'split'
@@ -70,10 +72,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Folds
 vim.o.foldenable = true
 vim.o.foldlevel = 99
-vim.o.foldmethod = "expr"
+vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'v:lua.vim.lsp.foldexpr()'
-vim.o.foldtext = ""
-vim.opt.foldcolumn = "0"
+vim.o.foldtext = ''
+vim.opt.foldcolumn = '0'
 
 -- Preserve cursor location when moving buffers
 vim.opt.hidden = false
