@@ -79,6 +79,35 @@ return {
           -- Execute a code action
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
 
+          -- Context menu (Code actions + LSP navigation)
+          map('<leader>cm', function()
+            local tb = require('telescope.builtin')
+            local items = {
+              { 'Go to Definition', tb.lsp_definitions },
+              { 'Go to Declaration', vim.lsp.buf.declaration },
+              { 'Go to Implementation', tb.lsp_implementations },
+              { 'To to Type Definition', tb.lsp_type_definitions },
+              { 'Find References', tb.lsp_references },
+              { 'Rename', vim.lsp.buf.rename },
+              { 'Signature Help', vim.lsp.buf.signature_help },
+              { 'Document Symbols', tb.lsp_document_symbols },
+              { 'Workspace Symbols', tb.lsp_workspace_symbols },
+              { 'Dynamic Workspace Symbols', tb.lsp_dynamic_workspace_symbols },
+              { 'Code Action', vim.lsp.buf.code_action },
+              { 'Hover Docs', vim.lsp.buf.hover },
+            }
+            vim.ui.select(items, {
+              prompt = 'LSP Actions',
+              format_item = function(item)
+                return item[1]
+              end,
+            }, function(choice)
+              if choice then
+                choice[2]()
+              end
+            end)
+          end, '[C]ode [A]ction', { 'n', 'x' })
+
           -- Go to declaration (not definition)
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
@@ -86,7 +115,7 @@ return {
           map('<leader>dw', vim.diagnostic.open_float, '[D]iagnostics for current [W]ord')
 
           -- Show diagonstics info on same line
-          map('<leader>td', function()
+          map('<leader>Td', function()
             virtual_text_enabled = not virtual_text_enabled
             vim.diagnostic.config({ virtual_text = virtual_text_enabled })
             print('Virtual Text ' .. (virtual_text_enabled and 'Enabled' or 'Disabled'))
@@ -123,7 +152,7 @@ return {
           -- The following code creates a keymap to toggle inlay hints (if supported by LSP)
           -- (Can displace some code)
           if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-            map('<leader>th', function()
+            map('<leader>Th', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
             end, '[T]oggle Inlay [H]ints')
           end
