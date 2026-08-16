@@ -71,6 +71,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Execute a code action
     map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
 
+    -- Run code lense on current line
+    map('<leader>cl', vim.lsp.codelens.run, '[C]ode [L]ense')
+
     -- Context menu (Code actions + LSP navigation)
     map('<leader>cm', function()
       local tb = require('telescope.builtin')
@@ -141,12 +144,22 @@ vim.api.nvim_create_autocmd('LspAttach', {
       })
     end
 
-    -- The following code creates a keymap to toggle inlay hints (if supported by LSP)
-    -- (Can displace some code)
+    -- Toggle inlay hints
     if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
       map('<leader>Th', function()
-        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+        local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
+        vim.lsp.inlay_hint.enable(not enabled)
+        print('Inlay Hints ' .. (enabled and 'Enabled' or 'Disabled'))
       end, '[T]oggle Inlay [H]ints')
+    end
+
+    -- Toggle code lens
+    if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_codeLens) then
+      map('<leader>Tc', function()
+        local enabled = vim.lsp.codelens.is_enabled({ bufnr = event.buf })
+        vim.lsp.codelens.enable(not enabled)
+        print('Code Lens ' .. (enabled and 'Enabled' or 'Disabled'))
+      end, '[T]oggle [C]ode Lens')
     end
   end,
 })
