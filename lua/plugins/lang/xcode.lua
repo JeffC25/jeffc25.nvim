@@ -1,24 +1,11 @@
-return {
-  'wojciech-kulik/xcodebuild.nvim',
-  dependencies = {
-    -- Uncomment a picker that you want to use, snacks.nvim might be additionally
-    -- useful to show previews and failing snapshots.
+local pack = require('pack')
+pack.add({
+  pack.gh('MunifTanjim/nui.nvim'),
+  pack.gh('stevearc/oil.nvim'),
+  pack.gh('nvim-treesitter/nvim-treesitter'),
+  pack.gh('wojciech-kulik/xcodebuild.nvim'),
+})
 
-    -- You must select at least one:
-    -- 'nvim-telescope/telescope.nvim',
-    -- "ibhagwan/fzf-lua",
-    -- "folke/snacks.nvim", -- (optional) to show previews
-
-    'MunifTanjim/nui.nvim',
-    -- "nvim-tree/nvim-tree.lua", -- (optional) to manage project files
-    'stevearc/oil.nvim', -- (optional) to manage project files
-    'nvim-treesitter/nvim-treesitter', -- (optional) for Quick tests support (required Swift parser)
-  },
-  config = function()
-    require('xcodebuild').setup({
-      -- put some options here or leave it empty to use default settings
-    })
-  end,
-}
+require('xcodebuild').setup({})
 
 -- vim: ts=2 sts=2 sw=2 et

@@ -1,10 +1,8 @@
 -- Autopairs
--- See: https://github.com/windwp/nvim-autopairs
 
-return {
-  'windwp/nvim-autopairs',
-  event = 'InsertEnter',
-  config = true
-}
+local pack = require('pack')
+pack.add({ pack.gh('windwp/nvim-autopairs') })
+
+require('nvim-autopairs').setup()
 
 -- vim: ts=2 sts=2 sw=2 et

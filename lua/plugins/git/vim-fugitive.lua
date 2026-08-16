@@ -1,3 +1,2 @@
-return {
-  'tpope/vim-fugitive',
-}
+local pack = require('pack')
+pack.add({ pack.gh('tpope/vim-fugitive') })

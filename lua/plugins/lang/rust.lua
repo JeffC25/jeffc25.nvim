@@ -41,10 +41,7 @@ vim.g.rustaceanvim = {
   dap = {},
 }
 
-return {
-  'mrcjkb/rustaceanvim',
-  version = '^7', -- Recommended
-  lazy = false, -- This plugin is already lazy
-}
+local pack = require('pack')
+pack.add({ pack.gh('mrcjkb/rustaceanvim') })
 
 -- vim: ts=2 sts=2 sw=2 et

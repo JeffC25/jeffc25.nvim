@@ -1,20 +1,15 @@
-return {
-  'otavioschwanck/arrow.nvim',
-  dependencies = {
-    -- { 'nvim-tree/nvim-web-devicons' },
-    -- or if using `mini.icons`
-    -- { "echasnovski/mini.icons" },
+local pack = require('pack')
+pack.add({ pack.gh('otavioschwanck/arrow.nvim') })
+
+require('arrow').setup({
+  show_icons = true,
+  leader_key = ';', -- Recommended to be a single key
+  buffer_leader_key = 'M', -- Per Buffer Mappings
+  hide_buffer_handbook = true,
+  style = 'auto',
+  window = {
+    border = 'rounded',
   },
-  opts = {
-    show_icons = true,
-    leader_key = ';', -- Recommended to be a single key
-    buffer_leader_key = 'M', -- Per Buffer Mappings
-    hide_buffer_handbook = true,
-    style = 'auto',
-    window = {
-      border = 'rounded',
-    },
-  },
-}
+})
 
 -- vim: ts=2 sts=2 sw=2 et

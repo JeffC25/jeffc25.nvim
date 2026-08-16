@@ -1,40 +1,34 @@
 -- File Tree
 
-return {
-  'nvim-neo-tree/neo-tree.nvim',
-  version = '*',
-  dependencies = {
-    'nvim-lua/plenary.nvim',
-    'MunifTanjim/nui.nvim',
-  },
-  cmd = 'Neotree',
-  keys = {
-    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
-    { '<C-\\>', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
-  },
-  opts = {
-    filesystem = {
-      window = {
-        mappings = {
-          ['\\'] = 'close_window',
-        },
-      },
-      follow_current_file = {
-        enabled = true,
+local pack = require('pack')
+pack.add({
+  pack.gh('nvim-neo-tree/neo-tree.nvim'),
+  pack.gh('nvim-lua/plenary.nvim'),
+  pack.gh('MunifTanjim/nui.nvim'),
+})
+
+require('neo-tree').setup({
+  filesystem = {
+    hijack_netrw_behavior = 'disabled',
+    window = {
+      mappings = {
+        ['\\'] = 'close_window',
       },
     },
+    follow_current_file = {
+      enabled = true,
+    },
   },
+})
 
-  config = function(_, opts)
-    require('neo-tree').setup(opts)
+vim.keymap.set('n', '\\', ':Neotree reveal<CR>', { desc = 'NeoTree reveal', silent = true })
+vim.keymap.set('n', '<C-\\>', ':Neotree reveal<CR>', { desc = 'NeoTree reveal', silent = true })
 
-    -- Auto-close Neo-tree before exiting Neovim
-    vim.api.nvim_create_autocmd('VimLeavePre', {
-      callback = function()
-        vim.cmd('Neotree close')
-      end,
-    })
+-- Auto-close Neo-tree before exiting Neovim
+vim.api.nvim_create_autocmd('VimLeavePre', {
+  callback = function()
+    vim.cmd('Neotree close')
   end,
-}
+})
 
 -- vim: ts=2 sts=2 sw=2 et
