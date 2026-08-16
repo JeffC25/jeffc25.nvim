@@ -113,14 +113,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('<leader>Td', function()
       virtual_text_enabled = not virtual_text_enabled
       vim.diagnostic.config({ virtual_text = virtual_text_enabled })
-      print('Virtual Text ' .. (virtual_text_enabled and 'Enabled' or 'Disabled'))
+      vim.notify('Virtual Text ' .. (virtual_text_enabled and 'Enabled' or 'Disabled'))
     end, 'LSP: [T]oggle inline [D]iagnostics')
 
     -- Following two autocommands used to highlight references of the
     -- word under cursor (when cursor rests there for a little while).
     -- See `:help CursorHold`
     local client = vim.lsp.get_client_by_id(event.data.client_id)
-    if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+    if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
       local highlight_augroup = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
       vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
         buffer = event.buf,
@@ -145,20 +145,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     -- Toggle inlay hints
-    if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+    if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
       map('<leader>Th', function()
         local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
         vim.lsp.inlay_hint.enable(not enabled)
-        print('Inlay Hints ' .. (enabled and 'Enabled' or 'Disabled'))
+        vim.notify('Inlay Hints ' .. (enabled and 'Enabled' or 'Disabled'))
       end, '[T]oggle Inlay [H]ints')
     end
 
     -- Toggle code lens
-    if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_codeLens) then
+    if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_codeLens) then
       map('<leader>Tc', function()
         local enabled = vim.lsp.codelens.is_enabled({ bufnr = event.buf })
         vim.lsp.codelens.enable(not enabled)
-        print('Code Lens ' .. (enabled and 'Enabled' or 'Disabled'))
+        vim.notify('Code Lens ' .. (enabled and 'Enabled' or 'Disabled'))
       end, '[T]oggle [C]ode Lens')
     end
   end,
