@@ -9,8 +9,8 @@ local function macro_recording()
   return '  @' .. reg
 end
 
-vim.opt.showcmd = true
-vim.opt.cmdheight = 1
+vim.opt.showcmd = false
+vim.opt.cmdheight = 0
 vim.opt.ruler = false
 
 require('lualine').setup({
