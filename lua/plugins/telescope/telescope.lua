@@ -46,6 +46,24 @@ vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps'
 vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
 vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
 
+-- Object Search
+vim.keymap.set('n', '<leader>so', function()
+  builtin.lsp_dynamic_workspace_symbols({ previewer = true })
+end, { desc = '[S]earch LSP [O]bjects (symbols)' })
+vim.keymap.set('n', '<leader>sO', function()
+  local kinds = { 'all', 'function', 'method', 'class', 'struct', 'interfact', 'enum', 'constant', 'variable' }
+  vim.ui.select(kinds, { prompt = 'Symbol kind:' }, function(choice)
+    if not choice then
+      return
+    end
+    local opts = { previewer = true }
+    if choice ~= 'all' then
+      opts.symbols = choice
+    end
+    builtin.lsp_dynamic_workspace_symbols(opts)
+  end)
+end, { desc = '[S]earch LSP [O]bjects (pick kind)' })
+
 -- File Search
 vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sF', function()
