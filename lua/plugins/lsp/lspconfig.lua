@@ -187,8 +187,8 @@ if vim.g.have_nerd_font then
 end
 
 -- Additional capabilities with nvim cmp, broadcast to LSP servers.
-local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 -- Enable additional  language servers
 --  Add any additional override configuration in the following tables. Available keys are:
@@ -244,21 +244,15 @@ vim.list_extend(ensure_installed, {
 })
 require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
 
+for server_name, server in pairs(servers) do
+  server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+  vim.lsp.config(server_name, server)
+end
+
 require('mason-lspconfig').setup({
   ensure_installed = { 'lua_ls' },
-  automatic_installation = true,
-  automatic_enable = true,
-  handlers = {
-    function(server_name)
-      local server = servers[server_name] or {}
-      -- This handles overriding only values explicitly passed
-      -- by the server configuration above. Useful when disabling
-      -- certain features of an LSP (Ex: turning off formatting for ts_ls)
-      server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-      vim.lsp.config(server_name, server)
-      vim.lsp.enable(server_name)
-    end,
-  },
+  -- rust_analyzer handled by rustaceanvim;
+  automatic_enable = { exclude = {'rust_analyzer'}},
 })
 
 -- non-Mason LSPs
