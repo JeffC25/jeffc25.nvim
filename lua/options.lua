@@ -14,7 +14,7 @@ vim.opt.mouse = 'a'
 
 vim.opt.termguicolors = true
 
--- vim.opt.tabstop = 4
+vim.opt.tabstop = 2
 
 -- Mode already in status line
 vim.opt.showmode = false

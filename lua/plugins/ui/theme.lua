@@ -21,7 +21,9 @@ pack.add({
   pack.gh('sainnhe/sonokai'),
   pack.gh('marko-cerovac/material.nvim'),
   pack.gh('maxmx03/solarized.nvim'),
-
+  pack.gh('vague-theme/vague.nvim'),
+  pack.gh('ribru17/bamboo.nvim'),
+  { src = 'https://codeberg.org/evergarden/nvim.git', name = 'evergarden' },
   -- Other Dependencies
   pack.gh('catgoose/nvim-colorizer.lua'),
   pack.gh('f-person/auto-dark-mode.nvim'),
