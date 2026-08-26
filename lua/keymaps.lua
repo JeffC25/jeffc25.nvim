@@ -68,7 +68,8 @@ vim.keymap.set('n', '<Leader>tp', ':tabprev<CR>', { noremap = true, silent = tru
 vim.keymap.set('n', '<Leader>tf', ':tabfirst<CR>', { noremap = true, silent = true, desc = 'Move focus to the first tab' })
 vim.keymap.set('n', '<Leader>tl', ':tablast<CR>', { noremap = true, silent = true, desc = 'Move focus to the last tab' })
 vim.keymap.set('n', '<Leader>tw', ':tabclose<CR>', { noremap = true, silent = true, desc = 'Close the current tab' })
-vim.keymap.set('n', '<Leader>tN', ':tabnew<CR>', { noremap = true, silent = true, desc = 'Create a new tab' })
+vim.keymap.set('n', '<Leader>tN', ':tab split<CR>', { noremap = true, silent = true, desc = 'Open a new tab' })
+vim.keymap.set('n', '<Leader>te', ':tabnew<CR>', { noremap = true, silent = true, desc = 'Open a new empty tab' })
 for i = 1, 9 do
   vim.keymap.set('n', '<Leader>' .. i, ':tabn ' .. i .. '<CR>', { noremap = true, silent = true, desc = 'Move focus to tab' .. i })
   vim.keymap.set('n', 'C-' .. i, ':tabn ' .. i .. '<CR>', { noremap = true, silent = true, desc = 'Move focus to tab' .. i })
